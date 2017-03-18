@@ -1,0 +1,33 @@
+<ion-header>
+
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <ion-navbar>
+    <ion-title>login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="login">
+ 
+
+ <div class="img">
+<img width="90" height="90" src="../assets/icon/salad.png"/>
+</div>
+
+  <h1 class="loginTit">Login</h1>
+  <br><br><br><br>
+
+    <ion-item class="login">
+      <ion-label floating >Nombre de usuario o email</ion-label>
+      <ion-input name="nombre" type="text" [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item class="login">
+      <ion-label floating>Contraseña</ion-label>
+      <ion-input name="pass" type="password" [(ngModel)]="pass"></ion-input>
+    </ion-item>
+<br><br>
+    <button ion-button color="secondary" block class="but" >Ingresar</button>
+
+</ion-content>
