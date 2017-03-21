@@ -1,7 +1,7 @@
 <ion-header>
 
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-  <ion-navbar>
+  <ion-navbar color="barra">
     <ion-title>login</ion-title>
   </ion-navbar>
 
@@ -20,6 +20,7 @@
 
     <ion-item class="login">
       <ion-label floating >Nombre de usuario o email</ion-label>
+      <ion-icon name="person"></ion-icon>
       <ion-input name="nombre" type="text" [(ngModel)]="nombre"></ion-input>
     </ion-item>
 
@@ -28,6 +29,6 @@
       <ion-input name="pass" type="password" [(ngModel)]="pass"></ion-input>
     </ion-item>
 <br><br>
-    <button ion-button color="secondary" block class="but" >Ingresar</button>
+    <button ion-button color="secondary" block class="but" (click)="next()">Ingresar</button>
 
 </ion-content>

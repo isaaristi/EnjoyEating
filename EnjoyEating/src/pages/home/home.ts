@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
-import { RegisterPage} from '../register/register';
+import { RegisterPage } from '../register/register';
+import { PrincipalPage } from '../principal/principal';
+import {Restaurante, RestauranteService} from '../../providers/auth-service';
+
 
 @Component({
   selector: 'page-home',
@@ -10,7 +13,7 @@ import { RegisterPage} from '../register/register';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private service: RestauranteService) {
 
   }
 
@@ -20,6 +23,10 @@ export class HomePage {
 
   nextr() {
     this.navCtrl.push(RegisterPage);
+  }
+
+  nextp() {
+    this.navCtrl.push(PrincipalPage);
   }
 
 }

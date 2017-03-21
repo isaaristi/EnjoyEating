@@ -28,7 +28,15 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  coloruno:   #3FCC9D,
+  colordos:   #CC7F75,
+  colortres:  #EFEFEF,
+  barra: (
+    base: #EFEFEF,
+    contrast: #3FCC9D
+  )
+
 );
 
 
