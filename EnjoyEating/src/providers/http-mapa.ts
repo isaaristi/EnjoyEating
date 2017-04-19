@@ -25,7 +25,7 @@ export class HttpMapa {
 
     let direccion = dir;
     let lat = channel.location.lat;
-    let long = channel.loction.lng;
+    let long = channel.location.lng;
     let horario = body.result.opening_hours.open_now;
     let dia = body.result.opening_hours.periods;
 
