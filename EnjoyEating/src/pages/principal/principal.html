@@ -21,13 +21,22 @@
 </ion-header>
 
 <ion-content>  
-<ion-searchbar (ionInput)="getItems($event)" color="colortres"></ion-searchbar>
+<ion-searchbar (ionInput)="getRestaurantes($event)" color="colortres"></ion-searchbar>
 
 <div [ngSwitch]="restaurantes">
     <ion-list *ngSwitchCase="'trending'" inset>
-      <button ion-item *ngFor="let m of service.data">
+      <button ion-item  *ngFor="let m of service.data let i = index" (click)="next(i)">
         <ion-thumbnail item-left>
-          <img [src]="m.imagen">
+          <img [src]="m.logo">
+        </ion-thumbnail>
+        <h2>{{m.nombre}}</h2>
+      </button>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'tipos'" inset>
+      <button ion-item  *ngFor="let m of service.data let i = index" (click)="next(i)">
+        <ion-thumbnail item-left>
+          <img [src]="m.logo">
         </ion-thumbnail>
         <h2>{{m.nombre}}</h2>
       </button>

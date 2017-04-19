@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
+import { NavController } from 'ionic-angular';
 
-import { HomePage } from '../home/home';
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
+import { PrincipalPage } from '../../../../src/pages/principal/principal';
+import { DetallesPage } from '../../../../src/pages/detalles/detalles';
+import { UsuarioPage } from '../../../../src/pages/usuario/usuario';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -10,11 +12,12 @@ import { ContactPage } from '../contact/contact';
 export class TabsPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
-  tab1Root: any = HomePage;
-  tab2Root: any = AboutPage;
-  tab3Root: any = ContactPage;
+  tab1Root: any = PrincipalPage;
+  tab2Root: any = DetallesPage;
+  tab3Root: any = UsuarioPage;
 
-  constructor() {
-
+mainContent:any;
+  constructor(public navCtrl: NavController) {
+this.mainContent = PrincipalPage;
   }
 }

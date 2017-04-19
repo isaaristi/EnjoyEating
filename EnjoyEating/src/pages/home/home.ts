@@ -4,7 +4,9 @@ import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { RegisterPage } from '../register/register';
 import { PrincipalPage } from '../principal/principal';
-import {Restaurante, RestauranteService} from '../../providers/auth-service';
+import { TabsPage } from '../../../menu/src/pages/tabs/tabs';
+import { RestauranteService } from '../../providers/auth-service';
+import { LoginService } from '../../providers/login-service';
 
 
 @Component({
@@ -13,9 +15,7 @@ import {Restaurante, RestauranteService} from '../../providers/auth-service';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, private service: RestauranteService) {
-
-  }
+  constructor(public navCtrl: NavController, public service: LoginService ) {}
 
   next() {
     this.navCtrl.push(LoginPage);
@@ -26,7 +26,7 @@ export class HomePage {
   }
 
   nextp() {
-    this.navCtrl.push(PrincipalPage);
+    this.navCtrl.push(TabsPage);
   }
 
 }
