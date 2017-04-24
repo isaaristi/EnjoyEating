@@ -3,19 +3,59 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Restaurante } from '../models/restaurante';
 import { URL } from '../app/app.config';
+import {Items} from '../models/items';
 
 @Injectable()
 export class RestauranteService {
 
-  constructor(public http: Http) { }
+  items: Items[];
 
-  all(): Observable<Restaurante[]> {
-    return this.http.get(URL + "/restaurante").map((response) => {
+  constructor(public http: Http) {
+    this.items = [];
+
+    let n1: Items = new Items();
+    n1.nombre = "Restaurante tradicional";
+    n1.imagen = "../assets/icon/dish.png";
+    n1.valor = "tradicional";
+
+    let n2: Items = new Items();
+    n2.nombre = "Restaurante tipico";
+    n2.imagen = "../assets/icon/saladlogo.png";
+    n2.valor = "tipico";
+
+    let n3: Items = new Items();
+    n3.nombre = "Comida rapida";
+    n3.imagen = "../assets/icon/sandwich.png";
+    n3.valor = "rapidas";
+
+    this.items.push(n1);
+    this.items.push(n2);
+    this.items.push(n3);
+   }
+
+  all(type:String = null): Observable<Restaurante[]> {
+    let q = "";
+    if(type){
+      let safeType = encodeURIComponent(type.trim());
+      q = "?type="+safeType;
+    }
+
+    return this.http.get(URL + "/restaurante"+q).map((response) => {
       return response.json();
     }).catch((err) => {
       return Observable.throw(err);
     });
   }
+
+  one(nombre): Observable<Restaurante[]>{
+    return this.http.get(URL + "/restaurante/"+nombre).map((response) => {
+      return response.json();
+    }).catch((err) => {
+      return Observable.throw(err);
+    });
+  }
+
+
 
   add(restaurante: Restaurante): Observable<{ success: boolean }> {
     let contentType = new Headers({ "Content-Type": "application/json" });
@@ -27,6 +67,7 @@ export class RestauranteService {
     });
 
   }
+
 
   /*loadData() {
     this.data = [

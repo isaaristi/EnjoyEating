@@ -11,6 +11,11 @@ import { DetallesPage } from '../pages/detalles/detalles';
 import { TabsPage } from '../../menu/src/pages/tabs/tabs';
 import { IonicStorageModule } from '@ionic/storage';
 import { LoginService } from '../providers/login-service';
+import { MenuPage } from '../pages/menu/menu';
+import { MapPage } from '../pages/map/map';
+import { AgmCoreModule } from 'angular2-google-maps/core';
+import {HttpMapa} from '../providers/http-mapa';
+import {TiposPage} from '../pages/tipos/tipos';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -24,11 +29,17 @@ import 'rxjs/add/operator/catch';
     RegisterPage,
     PrincipalPage,
     DetallesPage,
-    TabsPage
+    TabsPage,
+    MenuPage,
+    MapPage,
+    TiposPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA6fgLgJdUSb2syfbAjJSVSnebwzgpa1Zw'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,9 +49,12 @@ import 'rxjs/add/operator/catch';
     RegisterPage,
     PrincipalPage,
     DetallesPage,
-    TabsPage
+    TabsPage,
+    MenuPage,
+    MapPage,
+    TiposPage
   ],
-  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, RestauranteService, LoginService]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, RestauranteService, LoginService, HttpMapa]
 })
 export class AppModule { }
 

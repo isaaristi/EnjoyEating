@@ -1,0 +1,16 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>tipos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+<button ion-item *ngFor="let m of restaurante let i = index">
+        <ion-thumbnail item-left>
+          <img [src]="m.logo">
+        </ion-thumbnail>
+        <h2>{{m.nombre}}</h2>
+      </button>
+</ion-content>

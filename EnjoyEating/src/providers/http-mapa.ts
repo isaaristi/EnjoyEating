@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Mapa } from '../models/mapa';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-//AIzaSyBGnlgV1DvAk_gs-8liKGCf6ndlhV5omeQ
+//AIzaSyA6fgLgJdUSb2syfbAjJSVSnebwzgpa1Zw
 
 @Injectable()
 export class HttpMapa {
@@ -13,7 +13,7 @@ export class HttpMapa {
   }
 
   get(placeid: string): Observable<Mapa> {
-    return this.http.get("https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeid + "&key=AIzaSyBGnlgV1DvAk_gs-8liKGCf6ndlhV5omeQ")
+    return this.http.get("https://maps.googleapis.com/maps/api/place/details/json?placeid="+placeid+"&key=AIzaSyA6fgLgJdUSb2syfbAjJSVSnebwzgpa1Zw")
       .map(this.proccessResponse).catch(this.processError);
   }
 

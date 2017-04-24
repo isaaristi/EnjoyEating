@@ -1,48 +1,44 @@
-
 <ion-header>
   <ion-navbar color="barra">
     <ion-title>Página principal</ion-title>
   </ion-navbar>
 
   <ion-toolbar no-border-button>
-  <ion-segment [(ngModel)]="restaurantes" color="coloruno">
-    <ion-segment-button value="trending">
-      Trending
-    </ion-segment-button>
-    <ion-segment-button value="tipos" >
-      Tipos
-    </ion-segment-button>
-  <ion-segment-button value="nuevos">
-      Nuevos
-    </ion-segment-button>
-  </ion-segment>
+    <ion-segment [(ngModel)]="restaurantes" color="coloruno">
+      <ion-segment-button value="trending">
+        Trending
+      </ion-segment-button>
+      <ion-segment-button value="tipos">
+        Tipos
+      </ion-segment-button>
+      <ion-segment-button value="nuevos">
+        Nuevos
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 
 </ion-header>
 
-<ion-content>  
-<ion-searchbar (ionInput)="getRestaurantes($event)" color="colortres"></ion-searchbar>
-
-<div [ngSwitch]="restaurantes">
-    <ion-list *ngSwitchCase="'trending'" inset>
-      <button ion-item  *ngFor="let m of service.data let i = index" (click)="next(i)">
-        <ion-thumbnail item-left>
-          <img [src]="m.logo">
-        </ion-thumbnail>
-        <h2>{{m.nombre}}</h2>
-      </button>
-      </ion-list>
-
-      <ion-list *ngSwitchCase="'tipos'" inset>
-      <button ion-item  *ngFor="let m of service.data let i = index" (click)="next(i)">
-        <ion-thumbnail item-left>
-          <img [src]="m.logo">
-        </ion-thumbnail>
-        <h2>{{m.nombre}}</h2>
-      </button>
-      </ion-list>
-</div>
-</ion-content>
-
-
+<ion-content>
   
+  <div [ngSwitch]="restaurantes">
+    <ion-list *ngSwitchCase="'trending'" inset>
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+      <button ion-item *ngFor="let m of restaurante let i = index" (click)="next(i)">
+        <ion-thumbnail item-left>
+          <img [src]="m.logo">
+        </ion-thumbnail>
+        <h2>{{m.nombre}}</h2>
+      </button>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'tipos'" inset>
+        <button ion-item *ngFor="let n of service.items" (click)="nextByType(n.valor)" >
+        <ion-thumbnail item-left>
+        <img [src] ="n.imagen"/>
+        </ion-thumbnail>
+       <h2>{{n.nombre}}</h2> 
+      </button>
+    </ion-list>
+  </div>
+</ion-content> 

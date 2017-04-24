@@ -27,7 +27,7 @@ export class MapPage {
     console.log('ionViewDidLoad MapPage');
   }
 
-loadMapa(mapa: Mapa, err: String){
+loadMapa(mapa: Mapa, err: string){
   if (err) {
     console.log(err);
     return;

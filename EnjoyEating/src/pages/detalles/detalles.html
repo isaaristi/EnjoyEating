@@ -1,18 +1,28 @@
-<ion-header>
+<ion-header color="barra">
 
-  <ion-navbar>
-    <ion-title color="barra" ion-col col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4>Restaurante {{nombre}}</ion-title>
+  <ion-navbar color="barra">
+    <ion-title>Restaurante {{nombre}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <div ion-col col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4> 
+<ion-content padding class="fondo">
+  <div ion-col col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4>
     <img src={{imagen}}>
-    <p>{{direccion}}</p>
-    <p>{{telefono}}</p>
+    <div color="gris">
+    </div>
+    <h2>{{nombre}}</h2>
+    <h5>{{direccion}}</h5>
+    <h5>{{telefono}}</h5>
     <p>{{tipo}}</p>
+  </div>
+
+  <div ion-col col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4>
+    <ion-row>
+      <ion-col ion-button color="primary" block class="but" (click)="next()" >Ver menú</ion-col>
+      <ion-col ion-button color="primary" block class="but" (click)="next()" >Ver mapa</ion-col>
+    </ion-row>
   </div>
 
 </ion-content>
