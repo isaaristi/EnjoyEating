@@ -1,6 +1,6 @@
 <ion-header color="barra">
 
-  <ion-navbar color="barra">
+  <ion-navbar>
     <ion-title>Restaurante {{nombre}}</ion-title>
   </ion-navbar>
 
@@ -14,44 +14,39 @@
     <div>
       <ion-row>
         <ion-col>
-
           <button ion-button clear block class="homeBut" (click)="next()">
             <div> 
               <ion-icon name='heart-outline' color="gris"></ion-icon> <br />
               <label class="textoBoton">Guardar</label> 
             </div>
         </button>
-
         </ion-col>
         <ion-col>
-
           <button ion-button clear block class="homeBut" (click)="next()">
             <div> 
           <ion-icon name='checkbox-outline' color="gris"></ion-icon> <br />
               <label class="textoBoton">Ya estuve aquí</label> 
             </div>
         </button>
-
         </ion-col>
         <ion-col>
-
-          <button ion-button clear block class="homeBut" (click)="next()">
+          <button ion-button clear block class="homeBut" (click)="resena()">
             <div> 
           <ion-icon name='paper' color="gris"></ion-icon> <br />
               <label class="textoBoton">Reseñas</label> 
             </div>
         </button>
-          
         </ion-col>
       </ion-row>
     </div>
 
     <div color="gris">
     </div>
-    <h2>{{nombre}}</h2>
-    <h5>{{direccion}}</h5>
-    <h5>{{telefono}}</h5>
-    <p>{{tipo}}</p>
+    <h2 class="contenido">{{nombre}}</h2>
+    <h2 class="contenido">{{id}}</h2>
+    <h5 class="contenido">{{direccion}}</h5>
+    <h5 class="contenido">{{telefono}}</h5>
+    <p class="contenido">{{tipo}}</p>
   </div>
 
   <div ion-col col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4>

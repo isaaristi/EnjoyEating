@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
 import {  PrincipalPage } from '../pages/principal/principal';
 import {LoginPage} from '../pages/login/login';
+import {TabsPage} from '../../menu/src/pages/tabs/tabs';
 
 
 @Component({
@@ -21,9 +22,9 @@ export class MyApp {
 
       storage.get("logged").then((val) => {
         if (val) {
-          this.rootPage = PrincipalPage;
+          this.rootPage = TabsPage;
         } else {
-          this.rootPage = LoginPage;
+          this.rootPage = HomePage;
         }
       });
 

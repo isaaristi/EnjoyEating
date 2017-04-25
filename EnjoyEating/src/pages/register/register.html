@@ -17,19 +17,19 @@
     <ion-item class="login">
       <ion-label floating icon-left>
         <ion-icon name="person"></ion-icon>Nombre de usuario</ion-label>
-      <ion-input name="nombre" type="text" [(ngModel)]="username"></ion-input>
+      <ion-input name="nombre" type="text" [(ngModel)]="username" required></ion-input>
     </ion-item>
 
     <ion-item class="login">
       <ion-label floating icon-left>
         <ion-icon name="at"></ion-icon>Correo</ion-label>
-      <ion-input name="correo" type="email" [(ngModel)]="email"></ion-input>
+      <ion-input name="correo" type="email" [(ngModel)]="email" required></ion-input>
     </ion-item>
 
     <ion-item class="login">
       <ion-label floating icon-left>
         <ion-icon name="lock"></ion-icon>Contraseña</ion-label>
-      <ion-input name="pass" type="password" [(ngModel)]="password"></ion-input>
+      <ion-input name="pass" type="password" [(ngModel)]="password" required></ion-input>
     </ion-item>
     <br><br>
     <button ion-button color="secondary" block class="but" (click)="register()">Registrarse</button>

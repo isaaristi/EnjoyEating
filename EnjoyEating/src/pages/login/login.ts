@@ -4,6 +4,7 @@ import { LoginService } from '../../providers/login-service';
 import { PrincipalPage } from '../principal/principal';
 import { TabsPage } from '../../../menu/src/pages/tabs/tabs';
 import { Storage } from '@ionic/storage';
+import {Users} from '../../models/users';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage {
 
+  user: Users[];
   users: string;
   pass: string;
 
@@ -20,7 +22,7 @@ export class LoginPage {
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
     public storage: Storage) {
-
+    this.user = new Users();
   }
 
   login() {
@@ -33,12 +35,15 @@ export class LoginPage {
       let data = {user:this.users, password:this.pass};
     this.storage.set("logged",true);
     this.storage.set("user", data);
+    console.log(this.users);
       if (res.success) {
-        this.navCtrl.setRoot(TabsPage);
+        this.navCtrl.setRoot(TabsPage, {users: this.users});
       } else {
         this.toastCtrl.create({ message: "Usuario o contraseña incorrecta", duration: 3000 }).present();
       }
     });
+
+
   }
 
 

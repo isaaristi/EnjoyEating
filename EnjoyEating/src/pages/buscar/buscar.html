@@ -8,7 +8,7 @@
 
 
 <ion-content padding>
-<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+<ion-searchbar (ionInput)="getItems($event)" placeholder="Buscar ingredientes" showCancelButton="true"></ion-searchbar>
 <ion-row>
     <ion-col *ngFor="let e of menu" col-12 col-md-6 col-lg-4>
  <ion-card >

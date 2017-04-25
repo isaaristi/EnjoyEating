@@ -14,9 +14,13 @@ import { LoginService } from '../providers/login-service';
 import { MenuPage } from '../pages/menu/menu';
 import { MapPage } from '../pages/map/map';
 import { AgmCoreModule } from 'angular2-google-maps/core';
-import {HttpMapa} from '../providers/http-mapa';
-import {TiposPage} from '../pages/tipos/tipos';
-import {BuscarPage} from '../pages/buscar/buscar';
+import { HttpMapa } from '../providers/http-mapa';
+import { TiposPage } from '../pages/tipos/tipos';
+import { BuscarPage } from '../pages/buscar/buscar';
+import { UsuarioPage } from '../pages/usuario/usuario';
+import { ResenaPage } from '../pages/resena/resena';
+import { EstarPage } from '../pages/estar/estar';
+import { GuardarPage } from '../pages/guardar/guardar';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -34,7 +38,11 @@ import 'rxjs/add/operator/catch';
     MenuPage,
     MapPage,
     TiposPage,
-    BuscarPage
+    BuscarPage,
+    UsuarioPage,
+    ResenaPage,
+    EstarPage,
+    GuardarPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -55,7 +63,11 @@ import 'rxjs/add/operator/catch';
     MenuPage,
     MapPage,
     TiposPage,
-    BuscarPage
+    BuscarPage,
+    UsuarioPage,
+    ResenaPage,
+    GuardarPage,
+    EstarPage
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, RestauranteService, LoginService, HttpMapa]
 })

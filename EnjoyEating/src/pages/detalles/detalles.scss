@@ -1,9 +1,9 @@
 page-detalles {
 .but {
-    font-family: Roboto;
-    font-size: 15 px;
+    font-family: IndieFlower;
+    font-size: 15px;
     text-align: center;
-    color: #A9A9A9;
+    color: #EFEFEF;
     background: #CC7F75 ;
 }
 .but:hover{
@@ -19,9 +19,17 @@ page-detalles {
 }
 
 .textoBoton {
-    font-family: Roboto;
-    font-size: 10 px;
+    font-family: sans-serif;
+    font-size: 10px;
     color: #CC7F75;
+}
+
+.contenido{
+    font-family: sans-serif;
+}
+
+.titulo{
+    color:black;
 }
 
 }

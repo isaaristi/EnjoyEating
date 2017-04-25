@@ -23,7 +23,7 @@
   
   <div [ngSwitch]="restaurantes">
     <ion-list *ngSwitchCase="'trending'" inset>
-      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+      <ion-searchbar (ionInput)="getItems($event)" placeholder="Buscar restaurante"></ion-searchbar>
       <button ion-item *ngFor="let m of restaurante let i = index" (click)="next(i)">
         <ion-thumbnail item-left>
           <img [src]="m.logo">
