@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, App } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import {HomePage} from '../../pages/home/home';
+import {Users} from '../../models/users';
 
 @Component({
   selector: 'page-usuario',
@@ -9,15 +10,20 @@ import {HomePage} from '../../pages/home/home';
 })
 export class UsuarioPage {
 
-users: string;
+users: Users[];
+nombre: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public app: App, public storage:Storage) {
     storage.get("user").then( val =>{ console.log(val.user) });
   }
 
   ionViewDidLoad() {
-    this.users = storage.get("user");
+    this.storage.get("user").then(val => {this.users = val;
     console.log(this.users);
+    //this.nombre = this.users.username
+    ;
+  } );
+    
     console.log('ionViewDidLoad UsuarioPage');
   }
 

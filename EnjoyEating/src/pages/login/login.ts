@@ -13,7 +13,6 @@ import {Users} from '../../models/users';
 })
 export class LoginPage {
 
-  user: Users[];
   users: string;
   pass: string;
 
@@ -22,7 +21,7 @@ export class LoginPage {
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
     public storage: Storage) {
-    this.user = new Users();
+
   }
 
   login() {
@@ -32,7 +31,7 @@ export class LoginPage {
     loading.present();
     this.service.login(this.users, this.pass).subscribe(res => {
       loading.dismiss();
-      let data = {user:this.users, password:this.pass};
+      let data = {username:this.users, password:this.pass};
     this.storage.set("logged",true);
     this.storage.set("user", data);
     console.log(this.users);

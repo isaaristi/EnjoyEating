@@ -20,12 +20,12 @@
     <ion-item class="login">
       <ion-label floating icon-left> <ion-icon name="person"></ion-icon>Nombre de usuario o email</ion-label>
       
-      <ion-input name="nombre" type="text" [(ngModel)]="users.username" required></ion-input>
+      <ion-input name="nombre" type="text" [(ngModel)]="users" required></ion-input>
     </ion-item>
 
     <ion-item class="login">
       <ion-label floating icon-left><ion-icon name="lock"></ion-icon>Contraseña</ion-label>
-      <ion-input name="pass" type="password" [(ngModel)]="users.password" required></ion-input>
+      <ion-input name="pass" type="password" [(ngModel)]="pass" required></ion-input>
     </ion-item>
 <br><br>
     <button ion-button color="secondary" block class="but" (click)="login()">Ingresar</button>
