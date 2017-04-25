@@ -10,6 +10,42 @@
 <ion-content padding class="fondo">
   <div ion-col col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4>
     <img src={{imagen}}>
+
+    <div>
+      <ion-row>
+        <ion-col>
+
+          <button ion-button clear block class="homeBut" (click)="next()">
+            <div> 
+              <ion-icon name='heart-outline' color="gris"></ion-icon> <br />
+              <label class="textoBoton">Guardar</label> 
+            </div>
+        </button>
+
+        </ion-col>
+        <ion-col>
+
+          <button ion-button clear block class="homeBut" (click)="next()">
+            <div> 
+          <ion-icon name='checkbox-outline' color="gris"></ion-icon> <br />
+              <label class="textoBoton">Ya estuve aquí</label> 
+            </div>
+        </button>
+
+        </ion-col>
+        <ion-col>
+
+          <button ion-button clear block class="homeBut" (click)="next()">
+            <div> 
+          <ion-icon name='paper' color="gris"></ion-icon> <br />
+              <label class="textoBoton">Reseñas</label> 
+            </div>
+        </button>
+          
+        </ion-col>
+      </ion-row>
+    </div>
+
     <div color="gris">
     </div>
     <h2>{{nombre}}</h2>
@@ -20,8 +56,8 @@
 
   <div ion-col col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4>
     <ion-row>
-      <ion-col ion-button color="primary" block class="but" (click)="next()" >Ver menú</ion-col>
-      <ion-col ion-button color="primary" block class="but" (click)="next()" >Ver mapa</ion-col>
+      <ion-col ion-button block class="but" (click)="next()">Ver menú</ion-col>
+      <ion-col ion-button block class="but" (click)="mapa()">Ver mapa</ion-col>
     </ion-row>
   </div>
 

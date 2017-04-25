@@ -16,6 +16,7 @@ import { MapPage } from '../pages/map/map';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import {HttpMapa} from '../providers/http-mapa';
 import {TiposPage} from '../pages/tipos/tipos';
+import {BuscarPage} from '../pages/buscar/buscar';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -32,7 +33,8 @@ import 'rxjs/add/operator/catch';
     TabsPage,
     MenuPage,
     MapPage,
-    TiposPage
+    TiposPage,
+    BuscarPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -52,7 +54,8 @@ import 'rxjs/add/operator/catch';
     TabsPage,
     MenuPage,
     MapPage,
-    TiposPage
+    TiposPage,
+    BuscarPage
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, RestauranteService, LoginService, HttpMapa]
 })

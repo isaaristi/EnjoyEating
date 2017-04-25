@@ -54,11 +54,13 @@ router.get("/menu/:ingredientes",(req, res, next) => {
     req.collection.aggregate([
         {$project:{menu:1}},
         {$unwind:{path:"$menu"}},
-        {$match:{"menu.ingredientes":{$regex:"arroz", $options:"i"}}},
+        {$match:{"menu.ingredientes":{$regex:req.params.ingredientes, $options:"i"}}},
         {$group:{_id:"menu", menu:{$push:"$menu"}}}
         ]).toArray().then(doc => {
+            console.log(doc);
         if(doc.length > 0){
-            res.send(doc.menu);
+            console.log(doc[0].menu[0]);
+            res.send(doc[0].menu);
         }else{
             res.send([]);
         }

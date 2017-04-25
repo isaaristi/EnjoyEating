@@ -1,11 +1,13 @@
 page-detalles {
 .but {
-    font-family: IndieFlower, cursive;
+    font-family: Roboto;
     font-size: 15 px;
-    font-weight: bold;
     text-align: center;
-    color: #CC7F75;
-    background: #A9A9A9;
+    color: #A9A9A9;
+    background: #CC7F75 ;
+}
+.but:hover{
+    background: #CC7F75;
 }
 
 .fondo{
@@ -15,4 +17,11 @@ page-detalles {
 .barramenu {
     background: #F6F6F6;
 }
+
+.textoBoton {
+    font-family: Roboto;
+    font-size: 10 px;
+    color: #CC7F75;
+}
+
 }

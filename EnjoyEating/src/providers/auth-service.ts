@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Restaurante } from '../models/restaurante';
+import {Menu} from '../models/menu';
 import { URL } from '../app/app.config';
 import {Items} from '../models/items';
 
@@ -49,6 +50,14 @@ export class RestauranteService {
 
   one(nombre): Observable<Restaurante[]>{
     return this.http.get(URL + "/restaurante/"+nombre).map((response) => {
+      return response.json();
+    }).catch((err) => {
+      return Observable.throw(err);
+    });
+  }
+
+  getIngredientes(ingredientes): Observable<Menu[]> {
+    return this.http.get(URL + "/restaurante/menu/"+ingredientes).map((response) => {
       return response.json();
     }).catch((err) => {
       return Observable.throw(err);
