@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Usuario: {{nombre}}</ion-title>
+    <ion-title>Usuario:{{nombre}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only color="primary" (click)="logout()">
         <ion-icon name="power"></ion-icon>
@@ -39,7 +39,7 @@
   
  <div [ngSwitch]="info">
 <ion-list *ngSwitchCase="'estuve'" inset>
-  <ion-card >
+ <ion-card col-12 col-md-6 col-lg-4 *ngIf="nomb != null">
       <img [src]="img" height="250"/>
     <ion-card-content>
       <ion-card-title>
@@ -56,10 +56,11 @@
       </p>
     </ion-card-content>
   </ion-card>
+  <h2 *ngIf= "nomb == null" color="secondary">Usted no ha guardado ningún restaurante</h2>
 </ion-list>
 
 <ion-list *ngSwitchCase="'guardados'" inset>
-  <ion-card >
+  <ion-card col-12 col-md-6 col-lg-4 *ngIf="nom != null">
       <img [src]="imagen" height="250"/>
     <ion-card-content>
       <ion-card-title>
@@ -69,13 +70,14 @@
         {{direccion}}
       </p>
       <p>
-        {{Telefono}}
+        {{telefono}}
       </p>
       <p>
-        {{Tipo}}
+        {{tipo}}
       </p>
     </ion-card-content>
   </ion-card>
+  <h2 *ngIf= "nom == null" color="secondary">Usted no ha guardado ningún restaurante</h2>
 </ion-list>
  </div>
 

@@ -4,7 +4,7 @@ import { PrincipalPage } from '../principal/principal';
 import { LoginService } from '../../providers/login-service';
 import { TabsPage } from '../../../menu/src/pages/tabs/tabs';
 import {Users} from '../../models/users';
-
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-register',
@@ -13,14 +13,15 @@ import {Users} from '../../models/users';
 export class RegisterPage {
 
   user: Users;
-  username: string;
+  users: string;
   email: string;
-  password: string;
+  pass: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public service: LoginService,
     public toastCtrl: ToastController,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController,
+    public storage: Storage) {
 
       this.user = new Users();
 
@@ -31,13 +32,16 @@ export class RegisterPage {
       content: "Cargando..."
     });
     loading.present();
-    this.user.username = this.username;
+    this.user.username = this.users;
     this.user.email = this.email;
-    this.user.password = this.password;
+    this.user.password = this.pass;
 
     this.service.signin(this.user).subscribe(res => {
       loading.dismiss();
-      console.log("User: "+this.username + "res:"+res);
+      console.log("User: "+this.users + "res:"+res);
+      //let data = {username:this.users, password:this.pass};
+   // this.storage.set("logged",true);
+   // this.storage.set("user", data);
       if (res.success) {
         this.navCtrl.setRoot(TabsPage);
       } else {

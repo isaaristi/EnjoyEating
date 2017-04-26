@@ -71,6 +71,7 @@ export class DetallesPage {
             let data = {nombre: this.nombre, imagen: this.imagen, direccion: this.direccion,
             telefono: this.telefono, tipo: this.tipo}
             console.log(data);
+            this.storage.set("guardar", true);
             this.storage.set("guardar", data);
           }
         },
@@ -78,12 +79,15 @@ export class DetallesPage {
           text: 'Eliminar',
           handler: () => {
             console.log("Eliminado");
+            
+            this.storage.set("guardar", false);
           }
         },
         {
           text: 'Cancelar',
           handler: () => {
             console.log("Cancelado");
+            this.navCtrl.pop();
           }
         }
       ]
@@ -100,22 +104,26 @@ openEstuve() {
           text: 'Agregar',
           handler: () => {
             console.log("Guardado");
-            let data = {nombre: this.nombre, imagen: this.imagen, direccion: this.direccion,
-            telefono: this.telefono, tipo: this.tipo}
+            let data = {nomb: this.nombre, img: this.imagen, direc: this.direccion,
+            tel: this.telefono, tip: this.tipo}
             console.log(data);
+            this.storage.set("estuve", true)
             this.storage.set("estuve", data);
+            
           }
         },
         {
           text: 'Eliminar',
           handler: () => {
             console.log("Eliminado");
+            this.storage.set("estuve", false);
           }
         },
         {
           text: 'Cancelar',
           handler: () => {
             console.log("Cancelado");
+            this.navCtrl.pop();
           }
         }
       ]
