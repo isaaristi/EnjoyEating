@@ -56,6 +56,14 @@ export class RestauranteService {
     });
   }
 
+  getAllIngredientes(): Observable<Menu[]> {
+    return this.http.get(URL + "/restaurante/all/menus").map((response) => {
+      return response.json();
+    }).catch((err) => {
+      return Observable.throw(err);
+    });
+  }
+
   getIngredientes(ingredientes): Observable<Menu[]> {
     return this.http.get(URL + "/restaurante/menu/"+ingredientes).map((response) => {
       return response.json();

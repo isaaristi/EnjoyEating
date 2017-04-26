@@ -23,6 +23,7 @@ export class LoginPage {
     public storage: Storage) {
 
   }
+  
 
   login() {
     let loading = this.loadingCtrl.create({
@@ -31,7 +32,7 @@ export class LoginPage {
     loading.present();
     this.service.login(this.users, this.pass).subscribe(res => {
       loading.dismiss();
-      let data = {username:this.users, password:this.pass};
+      let data = {user:this.users, password:this.pass};
     this.storage.set("logged",true);
     this.storage.set("user", data);
     console.log(this.users);

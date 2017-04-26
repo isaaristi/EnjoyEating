@@ -1,11 +1,14 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>map</ion-title>
+    <ion-title>Mapa</ion-title>
   </ion-navbar>
 
 </ion-header>
+   
+      <sebm-google-map [latitude]="latitud" [longitude]="longitud" [zoom]="15">
+        <sebm-google-map-marker [latitude]="latitud" [longitude]="longitud"></sebm-google-map-marker>
+      </sebm-google-map>
 
-<sebm-google-map [latitude]="latitud" [longitude]="longitud" [zoom]="15">
-  <sebm-google-map-marker [latitude]="latitud" [longitude]="longitud"></sebm-google-map-marker>
-</sebm-google-map>
+
+

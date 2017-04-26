@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { RestauranteService } from '../../providers/auth-service';
-import {Menu} from '../../models/menu';
-import {Restaurante} from '../../models/restaurante';
+import { Menu } from '../../models/menu';
+import { Restaurante } from '../../models/restaurante';
 
 @Component({
   selector: 'page-buscar',
@@ -10,27 +10,29 @@ import {Restaurante} from '../../models/restaurante';
 })
 export class BuscarPage {
 
-restaurante: Restaurante[];
-menu: Menu[];
+  menu: Menu[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: RestauranteService) {
-    this.restaurante = [];
-    this.menu =[];
+
+    this.menu = [];
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BuscarPage');
-
+  ionViewDidEnter() {
+    this.service.getAllIngredientes().subscribe(data => this.menu = data);
   }
 
-    getItems(ev) {
+  getItems(ev) {
+    this.service.getAllIngredientes().subscribe(data => this.menu = data);
     //this.initializeItems();
     var val = ev.target.value;
-    this.service.getIngredientes(val).subscribe(data => this.menu = data);
-    if (val && val.trim() != '') {
-      this.menu = this.menu.filter((rest) => {
-        return (rest.toString().toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
+    console.log(val);
+    if (val != '') {
+      this.service.getIngredientes(val).subscribe(data => this.menu = data);
+      if (val && val.trim() != '') {
+        this.menu = this.menu.filter((rest) => {
+          return (rest.toString().toLowerCase().indexOf(val.toLowerCase()) > -1);
+        })
+      }
     }
 
   }

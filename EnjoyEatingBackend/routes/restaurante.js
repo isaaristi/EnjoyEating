@@ -10,8 +10,8 @@ router.use((req, res, next) => {
 router.get("/", (req, res, next) => {
     let type = req.query.type;
     let q = {};
-    if(type){
-        q.tipo = {$regex:type};
+    if (type) {
+        q.tipo = { $regex: type };
     }
     req.collection.find(q).toArray().then(data => {
         res.send(data);
@@ -20,18 +20,18 @@ router.get("/", (req, res, next) => {
     });
 });
 
-router.get("/:nombre", (req, res, next) =>{
-    console.log("PARAMS: "+req.params.nombre);
-    req.collection.find({nombre:{$regex:req.params.nombre, $options:"i"}}).toArray()
-    .then(doc=>{
-        if(doc){
-            res.send(doc);
-        }else{
-            res.status(404).send({msg:"Restaurante no encontrado"});
-        }
-    }).catch(err => {
-        res.send({msg:"ERRORRRRRR"});
-    });
+router.get("/:nombre", (req, res, next) => {
+    console.log("PARAMS: " + req.params.nombre);
+    req.collection.find({ nombre: { $regex: req.params.nombre, $options: "i" } }).toArray()
+        .then(doc => {
+            if (doc) {
+                res.send(doc);
+            } else {
+                res.status(404).send({ msg: "Restaurante no encontrado" });
+            }
+        }).catch(err => {
+            res.send({ msg: "ERRORRRRRR" });
+        });
 });
 
 /*router.get("/:menu.:ingredientes", (req, res, next) => {
@@ -46,22 +46,35 @@ router.get("/:nombre", (req, res, next) =>{
     }).catch(err => {
         res.send({msg:"ERRORRRRRR"});
     });
-    });*/
+});*/
 
-router.get("/menu/:ingredientes",(req, res, next) => {
-    //let ingredientes = new ObjectID(req.params.ingredientes);
-    console.log("PARAMS: "+req.params.ingredientes);
+router.get("/all/menus", (req, res, next) => {
+    console.log("Entro al menu all");
     req.collection.aggregate([
-        {$project:{menu:1}},
-        {$unwind:{path:"$menu"}},
-        {$match:{"menu.ingredientes":{$regex:req.params.ingredientes, $options:"i"}}},
-        {$group:{_id:"menu", menu:{$push:"$menu"}}}
-        ]).toArray().then(doc => {
-            console.log(doc);
-        if(doc.length > 0){
+        {$unwind: "$menu"},
+        { $group: { _id: "menu", menu: { $push: "$menu" } } }])
+    .toArray().then(data => {
+         res.send(data[0].menu);
+    }).catch(err => {
+        res.send([]);
+    });
+});
+
+
+router.get("/menu/:ingredientes", (req, res, next) => {
+    //let ingredientes = new ObjectID(req.params.ingredientes);
+    console.log("PARAMS: " + req.params.ingredientes);
+    req.collection.aggregate([
+        { $project: { menu: 1 } },
+        { $unwind: { path: "$menu" } },
+        { $match: { "menu.ingredientes": { $regex: req.params.ingredientes, $options: "i" } } },
+        { $group: { _id: "menu", menu: { $push: "$menu" } } }
+    ]).toArray().then(doc => {
+        console.log(doc);
+        if (doc.length > 0) {
             console.log(doc[0].menu[0]);
             res.send(doc[0].menu);
-        }else{
+        } else {
             res.send([]);
         }
     }).catch(err => {
@@ -95,24 +108,24 @@ router.post("/", (req, res, next) => {
 router.put("/:id", (req, res, next) => {
     let id = new ObjectID(req.params.id);
     let restaurante = req.body;
-    req.collection.updateOne({_id:id}, {$set:restaurante}).then(result=>{
-        res.send({success:true});
-    }).catch(err=>{
-        res.send({success:false})
+    req.collection.updateOne({ _id: id }, { $set: restaurante }).then(result => {
+        res.send({ success: true });
+    }).catch(err => {
+        res.send({ success: false })
     });
 
-   
+
 });
 
 router.delete("/:id", (req, res, next) => {
     let id = new ObjectID(req.params.id);
-    req.collection.deleteOne({_id:id}).then(result=>{
-        res.send({success:true});
+    req.collection.deleteOne({ _id: id }).then(result => {
+        res.send({ success: true });
     })
-    .catch(err=>{
-        res.send({success:false});
-    
-    }); 
+        .catch(err => {
+            res.send({ success: false });
+
+        });
 });
 
 

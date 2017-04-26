@@ -2,14 +2,56 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>usuario</ion-title>
+    <ion-title>Usuario</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="primary" (click)="logout()">
+        <ion-icon name="power"></ion-icon>
+      </button>
+    </ion-buttons>
+    
   </ion-navbar>
+
+  
+
+<ion-toolbar no-border-button>
+    <ion-segment [(ngModel)]="info" color="coloruno">
+      <ion-segment-button value="estuve">
+            <div> 
+          <ion-icon name='checkbox-outline' color="gris"></ion-icon> <br />
+              <label class="textoBoton">Ya estuve aquí</label> 
+            </div>
+        
+      </ion-segment-button>
+      <ion-segment-button value="guardados">
+            <div> 
+              <ion-icon name='heart-outline' color="gris"></ion-icon> <br />
+              <label class="textoBoton">Guardados</label> 
+            </div>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<button ion-button block color="secondary" class="but" (click)="logout()">cerrar sesion</button>
-<h1>Usuario: {{val}}</h1>
+
+  
+ <div [ngSwitch]="info">
+<h1>Usuario:{{nombre}}</h1>
+<ion-list *ngSwitchCase="'estuve'" inset>
+  <h2>Hola</h2>
+</ion-list>
+
+<ion-list *ngSwitchCase="'guardados'" inset>
+
+</ion-list>
+ </div>
+
+ 
+
+
+
 </ion-content>
+
 

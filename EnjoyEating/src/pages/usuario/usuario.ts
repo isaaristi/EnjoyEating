@@ -12,15 +12,17 @@ export class UsuarioPage {
 
 users: Users[];
 nombre: string;
+info: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public app: App, public storage:Storage) {
-    storage.get("user").then( val =>{ console.log(val.user) });
+    storage.get("user").then( val =>{ console.log(val.username) });
+    this.info = "estuve";
   }
 
   ionViewDidLoad() {
-    this.storage.get("user").then(val => {this.users = val;
-    console.log(this.users);
-    //this.nombre = this.users.username
+    this.storage.get("user").then(val => {this.nombre = val.username;
+    console.log(val.username);
+    //this.nombre = this.val.username
     ;
   } );
     

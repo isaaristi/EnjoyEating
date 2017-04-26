@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongodb = require('mongodb').MongoClient;
 var cors = require('cors');
 
+var resena = require('./routes/resena');
 var restaurante = require('./routes/restaurante');
 var users = require('./routes/users');
 
@@ -38,6 +39,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/resena', resena);
 app.use('/restaurante', restaurante);
 app.use('/users', users);
 

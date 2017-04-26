@@ -44,7 +44,7 @@ id: string;
 
   mapa() {
     this.navCtrl.push(MapPage, {
-      placeid: this.placeid
+      placeid: this.placeid, nombre: this.nombre, direccion: this.direccion
     })
   }
 
