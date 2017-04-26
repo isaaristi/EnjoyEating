@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-<button ion-item *ngFor="let m of restaurante let i = index">
+<button ion-item *ngFor="let m of restaurante let i = index" (click)="next(i)">
         <ion-thumbnail item-left>
           <img [src]="m.logo">
         </ion-thumbnail>

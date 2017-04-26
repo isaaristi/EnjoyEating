@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, App } from 'ionic-angular';
+import { NavController, NavParams, App, ActionSheetController } from 'ionic-angular';
 import { RestauranteService } from '../../providers/auth-service';
 import { Menu } from '../../models/menu';
 import { Restaurante } from '../../models/restaurante';
 import { MenuPage } from '../menu/menu';
 import { MapPage } from '../map/map';
 import { HttpMapa } from '../../providers/http-mapa';
-import {ResenaPage} from '../resena/resena';
+import { ResenaPage } from '../resena/resena';
+import { Storage } from '@ionic/storage';
+
 @Component({
   selector: 'page-detalles',
   templateUrl: 'detalles.html'
 })
 export class DetallesPage {
-id: string;
+  id: string;
   nombre: string;
   imagen: string;
   direccion: string;
@@ -21,7 +23,12 @@ id: string;
   menu: Menu[];
   placeid: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App, public service: HttpMapa) { }
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public app: App,
+    public service: HttpMapa,
+    public actionsheetCtrl: ActionSheetController,
+    public storage: Storage) { }
 
 
   ionViewDidLoad() {
@@ -48,9 +55,73 @@ id: string;
     })
   }
 
-  resena(){
-    this.app.getRootNav().push(ResenaPage, {placeid: this.placeid});
+  resena() {
+    this.app.getRootNav().push(ResenaPage, { placeid: this.placeid });
   }
+
+  openGuardar() {
+    let guardar = this.actionsheetCtrl.create({
+      title: 'Agrega este sitio a tus favoritos',
+      cssClass: 'action-sheet-basic-page',
+      buttons: [
+        {
+          text: 'Guardar',
+          handler: () => {
+            console.log("Guardado");
+            let data = {nombre: this.nombre, imagen: this.imagen, direccion: this.direccion,
+            telefono: this.telefono, tipo: this.tipo}
+            console.log(data);
+            this.storage.set("guardar", data);
+          }
+        },
+        {
+          text: 'Eliminar',
+          handler: () => {
+            console.log("Eliminado");
+          }
+        },
+        {
+          text: 'Cancelar',
+          handler: () => {
+            console.log("Cancelado");
+          }
+        }
+      ]
+  });
+  guardar.present();
+}
+
+openEstuve() {
+    let guardar = this.actionsheetCtrl.create({
+      title: 'Agrega este sitio a tu lista de visitados',
+      cssClass: 'action-sheet-basic-page',
+      buttons: [
+        {
+          text: 'Agregar',
+          handler: () => {
+            console.log("Guardado");
+            let data = {nombre: this.nombre, imagen: this.imagen, direccion: this.direccion,
+            telefono: this.telefono, tipo: this.tipo}
+            console.log(data);
+            this.storage.set("estuve", data);
+          }
+        },
+        {
+          text: 'Eliminar',
+          handler: () => {
+            console.log("Eliminado");
+          }
+        },
+        {
+          text: 'Cancelar',
+          handler: () => {
+            console.log("Cancelado");
+          }
+        }
+      ]
+  });
+  guardar.present();
+}
 
 }
 

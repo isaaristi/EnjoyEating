@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Usuario</ion-title>
+    <ion-title>Usuario: {{nombre}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only color="primary" (click)="logout()">
         <ion-icon name="power"></ion-icon>
@@ -38,13 +38,44 @@
 
   
  <div [ngSwitch]="info">
-<h1>Usuario:{{nombre}}</h1>
 <ion-list *ngSwitchCase="'estuve'" inset>
-  <h2>Hola</h2>
+  <ion-card >
+      <img [src]="img" height="250"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{nomb}}
+      </ion-card-title>
+      <p>
+        {{direc}}
+      </p>
+      <p>
+        {{tel}}
+      </p>
+      <p>
+        {{tip}}
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-list>
 
 <ion-list *ngSwitchCase="'guardados'" inset>
-
+  <ion-card >
+      <img [src]="imagen" height="250"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{nom}}
+      </ion-card-title>
+      <p>
+        {{direccion}}
+      </p>
+      <p>
+        {{Telefono}}
+      </p>
+      <p>
+        {{Tipo}}
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-list>
  </div>
 

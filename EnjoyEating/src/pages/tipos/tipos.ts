@@ -38,4 +38,13 @@ tipo:string;
 
   }
 
+  next(index: number) {
+    this.navCtrl.push(DetallesPage, {
+      id: this.restaurante[index].id,
+      nombre: this.restaurante[index].nombre, imagen: this.restaurante[index].imagen,
+      direccion: this.restaurante[index].direccion, telefono: this.restaurante[index].telefono, tipo: this.restaurante[index].tipo,
+      menu: this.restaurante[index].menu, placeid: this.restaurante[index].placeid
+    })
+  }
+
 }

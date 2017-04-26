@@ -15,6 +15,7 @@ export class MapPage {
   longitud:string;
   latitud1:string;
   longitud1:string;
+  direc: string;
 
   constructor(public navCtrl: NavController, 
   public navParams: NavParams,
@@ -22,7 +23,7 @@ export class MapPage {
 
     this.placeid = this.navParams.get("placeid");
     this.nombre = this.navParams.get("nombre");
-    this.direccion = this.navParams.get("direccion");
+    this.direc = this.navParams.get("direccion");
 
     client.get(this.placeid).subscribe(mapa => this.loadMapa(mapa,null));
   }
