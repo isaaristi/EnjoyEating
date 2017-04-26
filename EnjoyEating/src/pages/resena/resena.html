@@ -1,19 +1,30 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>resena</ion-title>
+    <ion-title>Reseñas</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+<ion-list *ngFor="let r of resena">
+  <ion-item>
+    <ion-thumbnail item-left>
+    </ion-thumbnail>
+    <h2 >{{r.idUs}}</h2>
+    <p>{{r.descripcion}}</p>
+  </ion-item>
+</ion-list>
 
+<h1>{{placeid}}</h1>
+<h1>{{nombre}}</h1>
 </ion-content>
+
 
 <ion-footer>
   <ion-item class="login">
-      <ion-input name="nombre" type="text" [(ngModel)]="resena" required placeholder="Escribe tu reseña"></ion-input>
-      <button ion-col col-3 ion-button clear block class="homeBut" item-right>Publicar</button>
+      <ion-input name="descripcion" type="text" [(ngModel)]="res.descripcion" required placeholder="Escribe tu reseña"></ion-input>
+      <button ion-col col-3 ion-button clear block class="homeBut" item-right (click)="save()">Publicar</button>
     </ion-item>
 </ion-footer>

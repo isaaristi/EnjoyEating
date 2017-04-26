@@ -49,7 +49,7 @@ id: string;
   }
 
   resena(){
-    this.app.getRootNav().push(ResenaPage);
+    this.app.getRootNav().push(ResenaPage, {placeid: this.placeid});
   }
 
 }

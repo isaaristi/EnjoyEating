@@ -22,8 +22,8 @@ info: string;
   ionViewDidLoad() {
     this.storage.get("user").then(val => {this.nombre = val.username;
     console.log(val.username);
-    //this.nombre = this.val.username
-    ;
+    console.log(val);
+        //this.nombre = this.val.username
   } );
     
     console.log('ionViewDidLoad UsuarioPage');

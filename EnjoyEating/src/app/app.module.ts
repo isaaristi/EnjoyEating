@@ -21,6 +21,7 @@ import { UsuarioPage } from '../pages/usuario/usuario';
 import { ResenaPage } from '../pages/resena/resena';
 import { EstarPage } from '../pages/estar/estar';
 import { GuardarPage } from '../pages/guardar/guardar';
+import {ResenaService} from '../providers/resena-service';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -69,7 +70,7 @@ import 'rxjs/add/operator/catch';
     GuardarPage,
     EstarPage
   ],
-  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, RestauranteService, LoginService, HttpMapa]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, RestauranteService, LoginService, HttpMapa, ResenaService]
 })
 export class AppModule { }
 
