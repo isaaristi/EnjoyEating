@@ -67,4 +67,12 @@ export class UsuarioPage {
     this.app.getRootNav().setRoot(HomePage);
   }
 
+  quitarG(){
+    this.storage.set("guardar", false);
+  }
+
+  quitarE(){
+    this.storage.set("estuve", false);
+  }
+
 }

@@ -55,6 +55,7 @@
         {{tip}}
       </p>
     </ion-card-content>
+    <button ion-col col-3 ion-button clear block class="homeBut" item-right (click)="quitarE()">Eliminar</button>
   </ion-card>
   <h2 *ngIf= "nomb == null" color="secondary">Usted no ha guardado ningún restaurante</h2>
 </ion-list>
@@ -76,14 +77,11 @@
         {{tipo}}
       </p>
     </ion-card-content>
+    <button ion-col col-3 ion-button clear block class="homeBut" item-right (click)="quitarG()">Eliminar</button>
   </ion-card>
   <h2 *ngIf= "nom == null" color="secondary">Usted no ha guardado ningún restaurante</h2>
 </ion-list>
  </div>
-
- 
-
-
 
 </ion-content>
 
